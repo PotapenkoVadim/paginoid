@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './paginoid.module.scss';
-import { range } from 'lodash';
 import { PaginoidProps, PageItem } from './paginoid.types';
 import { PaginoidItem } from './_item';
 import { PaginoidArrow } from './_arrow';
@@ -39,6 +38,8 @@ export default function Paginoid({
         pages.push(createPageItem(true, i));
       }
     } else {
+      const range = (size: number, startAt = 1) => [...Array(size).keys()].map(i => i + startAt);
+
       const returnActionDependsPositionCurrentPage = (action: any) => {
         const isFirtsPages = currentPage < paginationSlotsCount - 2;
         const isLastPages = currentPage >= penultPage - 2;
@@ -50,7 +51,7 @@ export default function Paginoid({
         }
       };
 
-      const generatedPages = range(1, pagesCount + 1)
+      const generatedPages = range(pagesCount + 1)
         .map((item, index) => returnActionDependsPositionCurrentPage({
           start: createPageItem(index < paginationSlotsCount - 2, item),
           end: createPageItem(index > penultPage - 5, item),
