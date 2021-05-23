@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import classNames from 'classnames/bind';
-import styles from './paginoid.module.scss';
 import { PaginoidProps, PageItem } from './paginoid.types';
 import { PaginoidItem } from './_item';
 import { PaginoidArrow } from './_arrow';
-
-const cx = classNames.bind(styles);
+import './style.css';
 
 export default function Paginoid({
   total,
@@ -101,7 +98,7 @@ export default function Paginoid({
   return (
     <>
       { pages.length ? (
-        <div className={cx(['paginoid', containerClassName])}>
+        <div className={`paginoid ${containerClassName}`}>
           <PaginoidArrow
             disabledArrowClassName={disabledArrowClassName}
             arrowsClassName={arrowsClassName}
@@ -109,7 +106,7 @@ export default function Paginoid({
             arrowTitle={prevButtonTitle}
             handleClick={() => goToPage(currentPage - 1)} />
 
-          <ul className={cx('paginoid_list')}>
+          <ul className='paginoid_list'>
             {pages.map((item) => (
               <li key={item.value}>
                 <PaginoidItem

@@ -12,25 +12,16 @@ export default {
   input: 'src/index.tsx',
   output: [
     {
-      file: pkg.main,
-      format: 'cjs',
-      exports: 'named',
-      sourcemap: true
-    },
-    {
       file: pkg.module,
       format: 'es',
-      exports: 'named',
-      sourcemap: true
+      exports: 'named'
     }
   ],
   plugins: [
     external(),
     postcss({
-      modules: false,
-      extract: true,
-      minimize: true,
-      sourceMap: true
+      extensions: ['.css'],
+      minimize: true
     }),
     url(),
     svgr(),

@@ -1,6 +1,6 @@
 {
   "name": "paginoid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pagination ReactJS component.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -22,9 +22,7 @@
   "bugs": {
     "url": "https://github.com/PotapenkoVadim/paginoid/issues"
   },
-  "dependencies": {
-    "classnames": "^2.3.1"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.1"
@@ -49,8 +47,6 @@
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-url": "^3.0.1",
-    "sass": "^1.32.8",
-    "sass-loader": "^10.1.1",
     "style-loader": "^2.0.0",
     "tslint": "^6.1.3",
     "tslint-immutable": "^6.0.1",

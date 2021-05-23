@@ -1,9 +1,6 @@
 import React from 'react';
-import classNames from 'classnames/bind';
-import styles from './paginoid.module.scss';
 import { ArrowProps } from './paginoid.types';
-
-const cx = classNames.bind(styles);
+import './style.css';
 
 export const PaginoidArrow = ({
   handleClick,
@@ -21,13 +18,13 @@ export const PaginoidArrow = ({
       tabIndex={0}
       role='button'
       data-type='back'
-      className={cx({
-        paginoid_arrow: true,
-        paginoid_clickable: true,
-        paginoid_arrow__disable: !isActive,
-        [arrowsClassName!]: !!arrowsClassName,
-        [disabledArrowClassName!]: !!disabledArrowClassName && !isActive
-      })}
+      className={`
+        paginoid_arrow
+        paginoid_clickable
+        ${!isActive && 'paginoid_arrow__disable'}
+        ${arrowsClassName}
+        ${!isActive && disabledArrowClassName}
+      `}
       onKeyDown={handleKeyDown}
       onClick={handleClick}>
       {arrowTitle}

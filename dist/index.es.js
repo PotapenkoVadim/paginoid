@@ -1,91 +1,62 @@
 import React, { useState, useEffect } from 'react';
 
-function createCommonjsModule(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
 }
 
-var bind = createCommonjsModule(function (module) {
-/*!
-  Copyright (c) 2018 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-/* global define */
+var css_248z = ".paginoid{display:inline-flex;justify-content:space-between;align-items:center;gap:15px}.paginoid_arrow{cursor:pointer;padding:10px}.paginoid_arrow__disable{cursor:default;pointer-events:none;color:#d3d3d3}.paginoid_clickable:active,.paginoid_clickable:focus{outline:none;user-select:none}.paginoid_list{display:flex;justify-content:space-around;gap:2px;list-style-type:none;margin:0;padding:0}.paginoid_item{user-select:none}.paginoid_button{padding:5px 12px;cursor:pointer}.paginoid_button__active{font-weight:700}";
+styleInject(css_248z);
 
-(function () {
-
-	var hasOwn = {}.hasOwnProperty;
-
-	function classNames () {
-		var classes = [];
-
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
-
-			var argType = typeof arg;
-
-			if (argType === 'string' || argType === 'number') {
-				classes.push(this && this[arg] || arg);
-			} else if (Array.isArray(arg)) {
-				classes.push(classNames.apply(this, arg));
-			} else if (argType === 'object') {
-				if (arg.toString === Object.prototype.toString) {
-					for (var key in arg) {
-						if (hasOwn.call(arg, key) && arg[key]) {
-							classes.push(this && this[key] || key);
-						}
-					}
-				} else {
-					classes.push(arg.toString());
-				}
-			}
-		}
-
-		return classes.join(' ');
-	}
-
-	if (module.exports) {
-		classNames.default = classNames;
-		module.exports = classNames;
-	} else {
-		window.classNames = classNames;
-	}
-}());
-});
-
-var styles = {"paginoid":"paginoid-module_paginoid__2XBa4","paginoid_arrow":"paginoid-module_paginoid_arrow__1seUc","paginoid_arrow__disable":"paginoid-module_paginoid_arrow__disable__1QK6N","paginoid_clickable":"paginoid-module_paginoid_clickable__1Pthk","paginoid_list":"paginoid-module_paginoid_list__3FPaX","paginoid_item":"paginoid-module_paginoid_item__3GvBe","paginoid_button":"paginoid-module_paginoid_button__3R7Uj","paginoid_button__active":"paginoid-module_paginoid_button__active__h6ybP"};
-
-const cx$2 = bind.bind(styles);
 const PaginoidItem = ({ page, isActive, itemsClassName, activeClassName, handleClick }) => {
     const handleKeyDown = (event) => {
         if (event.code === 'Enter')
             handleClick(page.value);
     };
-    return (React.createElement("div", { tabIndex: 0, role: 'button', className: cx$2([itemsClassName, 'paginoid_item', 'paginoid_clickable']), onKeyDown: handleKeyDown, onClick: () => handleClick(page.value) },
-        React.createElement("span", { className: cx$2({
-                paginoid_button: true,
-                paginoid_button__active: isActive,
-                [activeClassName]: !!activeClassName && isActive,
-            }) }, page.title)));
+    return (React.createElement("div", { tabIndex: 0, role: 'button', className: `${itemsClassName} paginoid_item paginoid_clickable`, onKeyDown: handleKeyDown, onClick: () => handleClick(page.value) },
+        React.createElement("span", { className: `
+          paginoid_button
+          ${isActive && 'paginoid_button__active'}
+          ${activeClassName}
+        ` }, page.title)));
 };
 
-const cx$1 = bind.bind(styles);
 const PaginoidArrow = ({ handleClick, arrowTitle, arrowsClassName, disabledArrowClassName, isActive = false }) => {
     const handleKeyDown = (event) => {
         if (event.code === 'Enter')
             handleClick();
     };
-    return (React.createElement("div", { tabIndex: 0, role: 'button', "data-type": 'back', className: cx$1({
-            paginoid_arrow: true,
-            paginoid_clickable: true,
-            paginoid_arrow__disable: !isActive,
-            [arrowsClassName]: !!arrowsClassName,
-            [disabledArrowClassName]: !!disabledArrowClassName && !isActive
-        }), onKeyDown: handleKeyDown, onClick: handleClick }, arrowTitle));
+    return (React.createElement("div", { tabIndex: 0, role: 'button', "data-type": 'back', className: `
+        paginoid_arrow
+        paginoid_clickable
+        ${!isActive && 'paginoid_arrow__disable'}
+        ${arrowsClassName}
+        ${!isActive && disabledArrowClassName}
+      `, onKeyDown: handleKeyDown, onClick: handleClick }, arrowTitle));
 };
 
-const cx = bind.bind(styles);
 function Paginoid({ total, perPage, currentPage, handleChange, prevButtonTitle = 'Left', nextButtonTitle = 'Right', containerClassName, arrowsClassName, itemsClassName, activeItemClassName, disabledArrowClassName }) {
     const [pagesCount, setPagesCount] = useState(0);
     const [activeArrows, setActiveArrows] = useState({ left: false, right: false });
@@ -150,12 +121,11 @@ function Paginoid({ total, perPage, currentPage, handleChange, prevButtonTitle =
         setActiveArrows({ left: currentPage > 1, right: currentPage < pagesCount });
     }, [currentPage, pagesCount]);
     useEffect(() => setPagesCount(Math.ceil(total / perPage)), []);
-    return (React.createElement(React.Fragment, null, pages.length ? (React.createElement("div", { className: cx(['paginoid', containerClassName]) },
+    return (React.createElement(React.Fragment, null, pages.length ? (React.createElement("div", { className: `paginoid ${containerClassName}` },
         React.createElement(PaginoidArrow, { disabledArrowClassName: disabledArrowClassName, arrowsClassName: arrowsClassName, isActive: activeArrows.left, arrowTitle: prevButtonTitle, handleClick: () => goToPage(currentPage - 1) }),
-        React.createElement("ul", { className: cx('paginoid_list') }, pages.map((item) => (React.createElement("li", { key: item.value },
+        React.createElement("ul", { className: 'paginoid_list' }, pages.map((item) => (React.createElement("li", { key: item.value },
             React.createElement(PaginoidItem, { activeClassName: activeItemClassName, itemsClassName: itemsClassName, page: item, isActive: item.value === currentPage, handleClick: goToPage }))))),
         React.createElement(PaginoidArrow, { disabledArrowClassName: disabledArrowClassName, arrowsClassName: arrowsClassName, isActive: activeArrows.right, arrowTitle: nextButtonTitle, handleClick: () => goToPage(currentPage + 1) }))) : null));
 }
 
-export { Paginoid };
-//# sourceMappingURL=index.es.js.map
+export default Paginoid;

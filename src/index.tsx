@@ -1,3 +1,4 @@
 import Paginoid from './component/paginoid';
+import './component/style.css';
 
-export { Paginoid };
+export default Paginoid;

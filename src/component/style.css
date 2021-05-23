@@ -1,0 +1,9 @@
+.paginoid { display: inline-flex; justify-content: space-between; align-items: center; gap: 15px; }
+.paginoid_arrow { cursor: pointer; padding: 10px; }
+.paginoid_arrow__disable { cursor: default; pointer-events: none; color: lightgray; }
+  
+.paginoid_clickable:active, .paginoid_clickable:focus { outline: none; user-select: none; }
+.paginoid_list { display: flex; justify-content: space-around; gap: 2px; list-style-type: none; margin: 0; padding: 0; }
+.paginoid_item { user-select: none; }
+.paginoid_button {padding: 5px 12px; cursor: pointer; }
+.paginoid_button__active { font-weight: bold; }
