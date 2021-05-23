@@ -1,0 +1,12 @@
+.paginoid { display: inline-flex; justify-content: space-between; align-items: center; gap: 15px;
+  &_arrow { cursor: pointer; padding: 10px;
+    &__disable { cursor: default; pointer-events: none; color: lightgray; }
+  }
+  
+  &_clickable:active, &_clickable:focus { outline: none; user-select: none; }
+  &_list { display: flex; justify-content: space-around; gap: 2px; list-style-type: none; margin: 0; padding: 0; }
+  &_item { user-select: none; }
+  &_button {padding: 5px 12px; cursor: pointer;
+    &__active { font-weight: bold; }
+  }
+}
