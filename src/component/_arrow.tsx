@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowProps } from './paginoid.types';
+import { ArrowProps } from '../interface/paginoid';
 import './style.css';
 
 export const PaginoidArrow = ({

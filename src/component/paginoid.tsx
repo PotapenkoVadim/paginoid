@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { PaginoidProps, PageItem } from './paginoid.types';
+import { PaginoidProps, PageItem } from '../interface/paginoid';
 import { PaginoidItem } from './_item';
 import { PaginoidArrow } from './_arrow';
 import './style.css';

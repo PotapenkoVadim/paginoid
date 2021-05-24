@@ -1,15 +1,12 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "declaration": true,
+    "declarationDir": "./dist/",
     "outDir": "./dist/",
-    "strictNullChecks": true,
-    "moduleResolution": "node",
-    "allowJs": true,
-    "noEmit": true,
     "strict": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "baseUrl": "./src",
     "lib": [
       "es2015",
       "dom.iterable",
@@ -18,16 +15,10 @@
       "dom"
     ],
     "module": "es6",
-    "removeComments": true,
-    "alwaysStrict": true,
-    "allowUnreachableCode": false,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
-    "importHelpers": true
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test"
+  ]
 }
