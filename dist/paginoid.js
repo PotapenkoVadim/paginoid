@@ -35,11 +35,20 @@ const PaginoidItem = ({ page, isActive, itemsClassName, activeClassName, handleC
         if (event.code === 'Enter')
             handleClick(page.value);
     };
-    return (React.createElement("div", { tabIndex: 0, role: 'button', className: `${itemsClassName} paginoid_item paginoid_clickable`, onKeyDown: handleKeyDown, onClick: () => handleClick(page.value) },
+    const [itemsClass, setItemsClass] = useState('paginoid_item');
+    useEffect(() => {
+        if (itemsClassName)
+            setItemsClass(itemsClassName);
+    }, [itemsClassName]);
+    const [activeItemClass, setActiveItemClass] = useState('paginoid_button__active');
+    useEffect(() => {
+        if (activeClassName)
+            setActiveItemClass(activeClassName);
+    }, [activeClassName]);
+    return (React.createElement("div", { tabIndex: 0, role: 'button', className: `${itemsClass} paginoid_clickable`, onKeyDown: handleKeyDown, onClick: () => handleClick(page.value) },
         React.createElement("span", { className: `
           paginoid_button
-          ${isActive && 'paginoid_button__active'}
-          ${activeClassName}
+          ${isActive ? activeItemClass : ''}
         ` }, page.title)));
 };
 
@@ -48,14 +57,24 @@ const PaginoidArrow = ({ handleClick, arrowTitle, arrowsClassName, disabledArrow
         if (event.code === 'Enter')
             handleClick();
     };
+    const [arrowsClass, setArrowsClass] = useState('paginoid_arrow');
+    useEffect(() => {
+        if (arrowsClassName)
+            setArrowsClass(arrowsClassName);
+    }, [arrowsClassName]);
+    const [disabledArrowClass, setDisabledArrowClass] = useState('paginoid_arrow__disable');
+    useEffect(() => {
+        if (disabledArrowClassName)
+            setDisabledArrowClass(disabledArrowClassName);
+    }, [disabledArrowClassName]);
     return (React.createElement("div", { tabIndex: 0, role: 'button', "data-type": 'back', className: `
-        paginoid_arrow
         paginoid_clickable
-        ${!isActive && 'paginoid_arrow__disable'}
-        ${arrowsClassName}
-        ${!isActive && disabledArrowClassName}
+        ${arrowsClass}
+        ${!isActive ? disabledArrowClass : ''}
       `, onKeyDown: handleKeyDown, onClick: handleClick }, arrowTitle));
 };
+
+const range = (size, startAt = 1) => [...Array(size).keys()].map(i => i + startAt);
 
 function Paginoid({ total, perPage, currentPage, handleChange, prevButtonTitle = 'Left', nextButtonTitle = 'Right', containerClassName, arrowsClassName, itemsClassName, activeItemClassName, disabledArrowClassName }) {
     const [pagesCount, setPagesCount] = useState(0);
@@ -74,7 +93,6 @@ function Paginoid({ total, perPage, currentPage, handleChange, prevButtonTitle =
             }
         }
         else {
-            const range = (size, startAt = 1) => [...Array(size).keys()].map(i => i + startAt);
             const returnActionDependsPositionCurrentPage = (action) => {
                 const isFirtsPages = currentPage < paginationSlotsCount - 2;
                 const isLastPages = currentPage >= penultPage - 2;
@@ -120,8 +138,13 @@ function Paginoid({ total, perPage, currentPage, handleChange, prevButtonTitle =
         setPages(createPagesArray(currentPage, pagesCount));
         setActiveArrows({ left: currentPage > 1, right: currentPage < pagesCount });
     }, [currentPage, pagesCount]);
-    useEffect(() => setPagesCount(Math.ceil(total / perPage)), []);
-    return (React.createElement(React.Fragment, null, pages.length ? (React.createElement("div", { className: `paginoid ${containerClassName}` },
+    useEffect(() => setPagesCount(Math.ceil(total / perPage)), [total, perPage]);
+    const [containerClass, setContainerClass] = useState('');
+    useEffect(() => {
+        if (containerClassName)
+            setContainerClass(containerClassName);
+    }, [containerClassName]);
+    return (React.createElement(React.Fragment, null, pages.length ? (React.createElement("div", { className: `paginoid ${containerClass}` },
         React.createElement(PaginoidArrow, { disabledArrowClassName: disabledArrowClassName, arrowsClassName: arrowsClassName, isActive: activeArrows.left, arrowTitle: prevButtonTitle, handleClick: () => goToPage(currentPage - 1) }),
         React.createElement("ul", { className: 'paginoid_list' }, pages.map((item) => (React.createElement("li", { key: item.value },
             React.createElement(PaginoidItem, { activeClassName: activeItemClassName, itemsClassName: itemsClassName, page: item, isActive: item.value === currentPage, handleClick: goToPage }))))),

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { PaginoidProps, PageItem } from '../interface/paginoid';
 import { PaginoidItem } from './_item';
 import { PaginoidArrow } from './_arrow';
+import { range } from '../utils';
 import './style.css';
 
 export default function Paginoid({
@@ -35,8 +36,6 @@ export default function Paginoid({
         pages.push(createPageItem(true, i));
       }
     } else {
-      const range = (size: number, startAt = 1) => [...Array(size).keys()].map(i => i + startAt);
-
       const returnActionDependsPositionCurrentPage = (action: any) => {
         const isFirtsPages = currentPage < paginationSlotsCount - 2;
         const isLastPages = currentPage >= penultPage - 2;
@@ -93,12 +92,18 @@ export default function Paginoid({
     setActiveArrows({ left: currentPage > 1, right: currentPage < pagesCount });
   }, [currentPage, pagesCount]);
 
-  useEffect(() => setPagesCount(Math.ceil(total / perPage)), []);
+  useEffect(() => setPagesCount(Math.ceil(total / perPage)), [total, perPage]);
+
+  const [containerClass, setContainerClass] = useState('');
+  useEffect(() => {
+    if (containerClassName)
+      setContainerClass(containerClassName);
+  }, [containerClassName]);
 
   return (
     <>
       { pages.length ? (
-        <div className={`paginoid ${containerClassName}`}>
+        <div className={`paginoid ${containerClass}`}>
           <PaginoidArrow
             disabledArrowClassName={disabledArrowClassName}
             arrowsClassName={arrowsClassName}
