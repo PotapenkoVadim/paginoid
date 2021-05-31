@@ -1,9 +1,29 @@
 # Paginoid
+[![npm version](https://badge.fury.io/js/paginoid.svg)](https://www.npmjs.com/package/paginoid) [![](https://data.jsdelivr.com/v1/package/npm/paginoid/badge)](https://www.jsdelivr.com/package/npm/paginoid)
 A ReactJS dumb component to render a pagination.
+  - a small function
+  - implemented in `typescript`
+  - ***no dependencies***
+***
+
+
+## Installation
+```bash
+    #npm
+    $ npm install paginoid
+    
+    #yarn
+    $ yarn add paginoid
+```
+***
 
 ## Usage
+Paginoid doesn't store state current page. Please, create state current page and function change state in the parent component and pass state and function to the package. Paginoid'll pass a new page value to the handler.
 
 ```js
+import React from 'react';
+import Paginoid from 'paginoid';
+
 export const App = (): JSX.Element => {
   const [curentPage, setCurrentPage] = useState(1);
   const handleChange = (page: number) => setCurrentPage(page);
@@ -31,11 +51,13 @@ export const App = (): JSX.Element => {
 
 ```
 
+***
+
 ## Params
-  * currentPage: number;
-  * total: number;
-  * perPage: number;
-  * handleChange: (currentPage: number) => void;
+  * **currentPage: number`(required)`;**
+  * **total: number`(required)` *- total items*;**
+  * **perPage: number`(required)` *- items per page*;**
+  * **handleChange: (currentPage: number) => void`(required)`;**
   * prevButtonTitle?: ReactNode;
   * nextButtonTitle?: ReactNode;
   * containerClassName?: string;
