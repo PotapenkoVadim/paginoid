@@ -1,5 +1,7 @@
 # Paginoid
 [![npm version](https://badge.fury.io/js/paginoid.svg)](https://www.npmjs.com/package/paginoid) [![](https://data.jsdelivr.com/v1/package/npm/paginoid/badge)](https://www.jsdelivr.com/package/npm/paginoid)
+
+
 A ReactJS dumb component to render a pagination.
   - a small function
   - implemented in `typescript`
