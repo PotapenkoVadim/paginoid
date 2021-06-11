@@ -1,5 +1,5 @@
 # Paginoid
-[![npm version](https://badge.fury.io/js/paginoid.svg)](https://www.npmjs.com/package/paginoid) [![](https://data.jsdelivr.com/v1/package/npm/paginoid/badge)](https://www.jsdelivr.com/package/npm/paginoid)
+[![npm version](https://badge.fury.io/js/paginoid.svg)](https://www.npmjs.com/package/paginoid) [![](https://data.jsdelivr.com/v1/package/npm/paginoid/badge)](https://www.jsdelivr.com/package/npm/paginoid) [![Package Quality](https://packagequality.com/shield/paginoid.svg)](https://packagequality.com/#?package=paginoid)
 
 ![](/paginoid.PNG)
 
@@ -7,7 +7,7 @@ A ReactJS dumb component to render a pagination.
   - a small function
   - implemented in `typescript`
   - ***no dependencies***
-***
+
 
 
 ## Installation
@@ -18,7 +18,7 @@ A ReactJS dumb component to render a pagination.
     #yarn
     $ yarn add paginoid
 ```
-***
+
 
 ## Usage
 
@@ -53,13 +53,12 @@ export const App = (): JSX.Element => {
 
 ```
 
-***
 
 ## Params
-  * **currentPage: number`(required)`;**
-  * **total: number`(required)` *- total items*;**
-  * **perPage: number`(required)` *- items per page*;**
-  * **handleChange: (currentPage: number) => void`(required)`;**
+  * **`currentPage`: number *(required)*;**
+  * **`total`: number *(required) - total items*;**
+  * **`perPage`: number *(required) - items per page*;**
+  * **`handleChange`: (currentPage: number) => void *(required)*;**
   * prevButtonTitle?: ReactNode;
   * nextButtonTitle?: ReactNode;
   * containerClassName?: string;
