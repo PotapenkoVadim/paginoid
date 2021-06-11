@@ -1,9 +1,9 @@
 {
   "name": "paginoid",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Pagination ReactJS component.",
   "main": "dist/paginoid.js",
-  "types": "index.d.js",
+  "types": "dist/index.d.js",
   "module": "dist/paginoid.js",
   "repository": {
     "type": "git",

@@ -1,6 +1,7 @@
 # Paginoid
 [![npm version](https://badge.fury.io/js/paginoid.svg)](https://www.npmjs.com/package/paginoid) [![](https://data.jsdelivr.com/v1/package/npm/paginoid/badge)](https://www.jsdelivr.com/package/npm/paginoid)
 
+![](/paginoid.PNG)
 
 A ReactJS dumb component to render a pagination.
   - a small function
@@ -20,7 +21,6 @@ A ReactJS dumb component to render a pagination.
 ***
 
 ## Usage
-Paginoid doesn't store state current page. Please, create state current page and function change state in the parent component and pass state and function to the package. Paginoid'll pass a new page value to the handler.
 
 ```js
 import React from 'react';
