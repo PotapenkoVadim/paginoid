@@ -2,13 +2,16 @@
   "name": "paginoid",
   "version": "1.0.4",
   "description": "Pagination ReactJS component.",
-  "main": "dist/paginoid.js",
-  "types": "dist/index.d.js",
-  "module": "dist/paginoid.js",
+  "main": "paginoid.js",
+  "types": "index.d.js",
+  "module": "paginoid.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/PotapenkoVadim/paginoid"
   },
+  "files": [
+    "/dist"
+  ],
   "keywords": [
     "react-component",
     "paginate",

@@ -8,7 +8,7 @@ export default {
   output: [
     {
       file: 'dist/paginoid.js',
-      format: 'es',
+      format: 'cjs',
       exports: 'named'
     }
   ],
@@ -23,5 +23,6 @@ export default {
       clean: true
     }),
     commonjs()
-  ]
+  ],
+  external: ['react', 'react-dom']
 };
