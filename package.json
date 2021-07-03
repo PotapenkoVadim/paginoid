@@ -1,17 +1,17 @@
 {
   "name": "paginoid",
-  "version": "1.0.10",
+  "version": "2.0.0",
   "description": "Pagination ReactJS component.",
-  "main": "dist/paginoid.js",
-  "types": "dist/index.d.js",
-  "module": "dist/paginoid.js",
+  "private": false,
+  "main": "lib/index.js",
+  "types": "lib/index.d.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/PotapenkoVadim/paginoid"
   },
-  "files": [
-    "/dist"
-  ],
+  "bugs": {
+    "url": "https://github.com/PotapenkoVadim/paginoid/issues"
+  },
   "keywords": [
     "react-component",
     "paginate",
@@ -22,38 +22,71 @@
     "name": "Potapenko Vadim"
   },
   "license": "CC0-1.0",
-  "bugs": {
-    "url": "https://github.com/PotapenkoVadim/paginoid/issues"
-  },
+  "files": [
+    "lib"
+  ],
   "dependencies": {},
+  "scripts": {
+    "copy-files": "copyfiles --up 1 src/component/*.css lib/",
+    "start": "react-scripts start",
+    "build": "tsc",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "prepublish": "npm run build && npm run copy-files"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.1"
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
-    "@babel/preset-env": "^7.12.11",
-    "@babel/preset-react": "^7.12.10",
-    "@babel/preset-typescript": "^7.12.7",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "babel-loader": "^8.2.2",
-    "css-loader": "^5.2.5",
-    "rollup": "^2.49.0",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-postcss": "^4.0.0",
-    "rollup-plugin-typescript2": "^0.30.0",
-    "style-loader": "^2.0.0",
-    "tslint": "^6.1.3",
-    "tslint-immutable": "^6.0.1",
-    "typescript": "^4.1.3"
-  },
-  "scripts": {
-    "build": "rollup -c",
-    "start": "rollup -c -w && npm run prettier-watch"
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^12.20.15",
+    "@types/react": "^17.0.13",
+    "@types/react-dom": "^17.0.8",
+    "@storybook/addon-actions": "^6.3.2",
+    "@storybook/addon-essentials": "^6.3.2",
+    "@storybook/addon-links": "^6.3.2",
+    "@storybook/node-logger": "^6.3.2",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.3.2",
+    "copyfiles": "^2.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.3.5",
+    "web-vitals": "^1.1.2"
   }
 }

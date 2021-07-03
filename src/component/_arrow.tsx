@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { ArrowProps } from '../interface/paginoid';
-import './style.css';
+import React, { useEffect, useState, ReactNode } from 'react';
 
 export const PaginoidArrow = ({
   handleClick,
@@ -8,21 +6,25 @@ export const PaginoidArrow = ({
   arrowsClassName,
   disabledArrowClassName,
   isActive = false
-}: ArrowProps): JSX.Element => {
+}: {
+  handleClick: () => void;
+  arrowTitle?: ReactNode;
+  isActive?: boolean;
+  arrowsClassName?: string;
+  disabledArrowClassName?: string;
+}): JSX.Element => {
   const handleKeyDown = (event: React.KeyboardEvent): void => {
     if (event.code === 'Enter') handleClick();
   };
 
   const [arrowsClass, setArrowsClass] = useState('paginoid_arrow');
   useEffect(() => {
-    if (arrowsClassName)
-      setArrowsClass(arrowsClassName)
+    if (arrowsClassName) setArrowsClass(arrowsClassName)
   }, [arrowsClassName]);
 
   const [disabledArrowClass, setDisabledArrowClass] = useState('paginoid_arrow__disable');
   useEffect(() => {
-    if (disabledArrowClassName)
-      setDisabledArrowClass(disabledArrowClassName)
+    if (disabledArrowClassName) setDisabledArrowClass(disabledArrowClassName)
   }, [disabledArrowClassName]);
 
   return (

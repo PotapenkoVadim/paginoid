@@ -1,1 +1,1 @@
-export const range = (size: number, startAt = 1) => [...Array(size).keys()].map(i => i + startAt);
+export const range = (size: number, startAt: number = 1): number[] => Array.apply(null, Array(size)).map((_, i: number) => i + startAt);

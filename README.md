@@ -27,13 +27,13 @@ import React from 'react';
 import Paginoid from 'paginoid';
 
 export const App = (): JSX.Element => {
-  const [curentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const handleChange = (page: number) => setCurrentPage(page);
 
   return (
     <div className='app'>
       <Paginiod
-        currentPage={curentPage}
+        currentPage={currentPage}
         total={150}
         perPage={3}
         handleChange={handleChange}

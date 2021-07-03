@@ -1,11 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { PaginoidProps, PageItem } from '../interface/paginoid';
-import { PaginoidItem } from './_item';
+import React, { useEffect, useState, ReactNode } from 'react';
+import { PaginoidItem, PageItem } from './_item';
 import { PaginoidArrow } from './_arrow';
 import { range } from '../utils';
 import './style.css';
 
-export default function Paginoid({
+export type PaginoidProps = {
+  currentPage: number;
+  total: number;
+  perPage: number;
+  handleChange: (currentPage: number) => void;
+  prevButtonTitle?: ReactNode;
+  nextButtonTitle?: ReactNode;
+  containerClassName?: string;
+  arrowsClassName?: string;
+  itemsClassName?: string;
+  activeItemClassName?: string;
+  disabledArrowClassName?: string;
+};
+
+export function Paginoid({
   total,
   perPage,
   currentPage,
@@ -67,7 +80,8 @@ export default function Paginoid({
     return pages;
   };
 
-  const [pages, setPages] = useState(createPagesArray(currentPage, pagesCount));
+  const pagesArray = createPagesArray(currentPage, pagesCount);
+  const [pages, setPages] = useState(pagesArray);
 
   const goToPage = (page: number): void => {
     let validatePage = 0;
@@ -102,7 +116,7 @@ export default function Paginoid({
 
   return (
     <>
-      { pages.length ? (
+      {pages.length ? (
         <div className={`paginoid ${containerClass}`}>
           <PaginoidArrow
             disabledArrowClassName={disabledArrowClassName}
