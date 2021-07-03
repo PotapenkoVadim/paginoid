@@ -1,0 +1,16 @@
+.paginoid { display: -webkit-inline-flex; display: inline-flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; grid-gap: 15px; gap: 15px; }
+.paginoid_arrow { cursor: pointer; padding: 10px; -webkit-user-select: none; -ms-user-select: none; user-select: none; }
+.paginoid_arrow__disable { cursor: default; pointer-events: none; color: lightgray; }
+.paginoid_clickable:active, .paginoid_clickable:focus { outline: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; }
+.paginoid_list { display: -webkit-flex; display: flex; -webkit-justify-content: space-around; justify-content: space-around; grid-gap: 2px; gap: 2px; list-style-type: none; margin: 0; padding: 0; }
+.paginoid_item { -webkit-user-select: none; -ms-user-select: none; user-select: none; }
+.paginoid_button {padding: 5px 12px; cursor: pointer; }
+.paginoid_button__active { font-weight: bold; }
+
+.c-pagination { border: 1px solid lightgrey; box-shadow: 1px 1px 3px grey; padding: 3px 10px; border-radius: 3px; }
+.c-pagination_arrows { cursor: pointer; -webkit-user-select: none; -ms-user-select: none; user-select: none; }
+.c-pagination_item { background-color: white; padding: 8px 3px; border-radius: 3px; color: black; font-weight: bold; }
+.c-pagination_item__active { background-color: tomato; color: white; }
+.c-pagination_arrows__disable { opacity: 0; cursor: default; }
+
+/*# sourceMappingURL=main.44617f99.chunk.css.map*/

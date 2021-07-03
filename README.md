@@ -3,11 +3,10 @@
 
 ![](/paginoid.PNG)
 
-A ReactJS dumb component to render a pagination.
+A ReactJS dumb component to render a pagination. 
   - a small function
   - implemented in `typescript`
   - ***no dependencies***
-
 
 
 ## Installation
@@ -66,3 +65,5 @@ export const App = (): JSX.Element => {
   * itemsClassName?: string;
   * activeItemClassName?: string;
   * disabledArrowClassName?: string;
+
+***[Watch Demo](https://potapenkovadim.github.io/paginoid/storybook-static/)***
