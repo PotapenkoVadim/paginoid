@@ -1,24 +1,29 @@
 {
   "files": {
-    "0.d5ec032d.iframe.bundle.js": "./0.d5ec032d.iframe.bundle.js",
-    "main.js": "./main.29ed7664.iframe.bundle.js",
-    "runtime~main.js": "./runtime~main.d169416f.iframe.bundle.js",
-    "vendors~main.js": "./vendors~main.4e6abd17.iframe.bundle.js",
-    "vendors~main.js.map": "./vendors~main.4e6abd17.iframe.bundle.js.map",
-    "4.a6285174.iframe.bundle.js": "./4.a6285174.iframe.bundle.js",
-    "4.a6285174.iframe.bundle.js.map": "./4.a6285174.iframe.bundle.js.map",
-    "5.c03d7f67.iframe.bundle.js": "./5.c03d7f67.iframe.bundle.js",
-    "6.4cc01f97.iframe.bundle.js": "./6.4cc01f97.iframe.bundle.js",
-    "6.4cc01f97.iframe.bundle.js.map": "./6.4cc01f97.iframe.bundle.js.map",
-    "7.1c9820be.iframe.bundle.js": "./7.1c9820be.iframe.bundle.js",
-    "4.a6285174.iframe.bundle.js.LICENSE.txt": "./4.a6285174.iframe.bundle.js.LICENSE.txt",
-    "6.4cc01f97.iframe.bundle.js.LICENSE.txt": "./6.4cc01f97.iframe.bundle.js.LICENSE.txt",
+    "0.3ddfad7e.iframe.bundle.js": "./0.3ddfad7e.iframe.bundle.js",
+    "main.css": "./static/css/main.44617f99.chunk.css",
+    "main.js": "./main.199e4e83.iframe.bundle.js",
+    "main.css.map": "./static/css/main.44617f99.chunk.css.map",
+    "runtime~main.js": "./runtime~main.cb541599.iframe.bundle.js",
+    "vendors~main.js": "./vendors~main.2ad6932c.iframe.bundle.js",
+    "vendors~main.js.map": "./vendors~main.2ad6932c.iframe.bundle.js.map",
+    "4.43c2f914.iframe.bundle.js": "./4.43c2f914.iframe.bundle.js",
+    "4.43c2f914.iframe.bundle.js.map": "./4.43c2f914.iframe.bundle.js.map",
+    "5.391414c0.iframe.bundle.js": "./5.391414c0.iframe.bundle.js",
+    "6.3f373c75.iframe.bundle.js": "./6.3f373c75.iframe.bundle.js",
+    "6.3f373c75.iframe.bundle.js.map": "./6.3f373c75.iframe.bundle.js.map",
+    "7.00b7b9c5.iframe.bundle.js": "./7.00b7b9c5.iframe.bundle.js",
+    "4.43c2f914.iframe.bundle.js.LICENSE.txt": "./4.43c2f914.iframe.bundle.js.LICENSE.txt",
+    "6.3f373c75.iframe.bundle.js.LICENSE.txt": "./6.3f373c75.iframe.bundle.js.LICENSE.txt",
     "iframe.html": "./iframe.html",
-    "vendors~main.4e6abd17.iframe.bundle.js.LICENSE.txt": "./vendors~main.4e6abd17.iframe.bundle.js.LICENSE.txt"
+    "static/media/left-arrow.206ac334.svg": "./static/media/left-arrow.206ac334.svg",
+    "static/media/right-arrow.8fd5ace7.svg": "./static/media/right-arrow.8fd5ace7.svg",
+    "vendors~main.2ad6932c.iframe.bundle.js.LICENSE.txt": "./vendors~main.2ad6932c.iframe.bundle.js.LICENSE.txt"
   },
   "entrypoints": [
-    "runtime~main.d169416f.iframe.bundle.js",
-    "vendors~main.4e6abd17.iframe.bundle.js",
-    "main.29ed7664.iframe.bundle.js"
+    "runtime~main.cb541599.iframe.bundle.js",
+    "vendors~main.2ad6932c.iframe.bundle.js",
+    "static/css/main.44617f99.chunk.css",
+    "main.199e4e83.iframe.bundle.js"
   ]
 }
